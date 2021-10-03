@@ -1,3 +1,4 @@
+#Note: Limited to Windows users
 import pyttsx3
 import speech_recognition as sr
 engine = pyttsx3.init('sapi5')
@@ -52,17 +53,18 @@ def takeCommand():
           return "None"
     return query 
   
-  if __name__ == "__main__":   
+if __name__ == "__main__":   
     
     def taskExecution(): 
        while True:
         query = takeCommand().lower() 
         # schedule.running_pending()
         if 'hi' in query:
-          speak("hi, I am Ultron)  
+          speak("hi, I am Ultron")  
                 
         elif 'who created you' in query:
                 speak("Master Abhinav created my existence and i am grateful for this")
                 
         elif 'what is your purpose' in query:
                 speak("The only purpose of my existence is to slay and conquer inferior human life form")
+
