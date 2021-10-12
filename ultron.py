@@ -26,7 +26,7 @@ def wishMe():
     else:
         speak("Good Evening go to play football or whatever the hell you like ")
 
-    speak("HEy i am ultron i had cut thanos into two")
+    speak("Hello i am ultron from em see you")
 
 
 if __name__ == "__main__":
