@@ -38,27 +38,29 @@ def taskExec():
     
     
 def funca():
-   global strt
-    speak(Choose a cursed wakeup word to awake me human!")
+    global strt
+    speak("Choose a cursed wakeup word to awake me human!")
     time.sleep(1)
     strt = input("Choose a cursed wakeup word to awake me human: ")
-    if strt != ""
-     speak("good,you set the correct cursed word! i spare your meaningless life: ")
-     time.sleep(1)
-     print("good,you set the correct cursed word! i spare your meaningless life: ")
+    if strt != "":
+        speak("good,you set the correct cursed word! i spare your meaningless life: ")
+        time.sleep(1)
+        print("good,you set the correct cursed word! i spare your meaningless life: ")
+
+     
     else:
       print("Na munna! Na! wakeword to dalna hi padega tumhe: ")
       return funca()
           
           
- def funcb():
+def funcb():
     speak("Enter the cursed wakeword and unleash my powers you inferior piece of shit: ")
     ok = input("Enter the cursed wakeword and unleash my powers you inferior piece of shit: ")
     if strt in ok:
           speak("Unleashing my powers!")
           taskExec()
     else:
-          speak("you stupid human!, cant even type something correctly!!!!! you deserve to die)
+          speak("you stupid human!, cant even type something correctly!!!!! you deserve to die")
           exit(0)   #change this to return funcb if u wanna give user another chance to enter correct wakeword
        
              
