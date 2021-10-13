@@ -1,4 +1,5 @@
 import pyttsx3
+import speech_recognition as sr
 from gtts import gTTS
 import datetime
 
@@ -28,7 +29,25 @@ def wishMe():
 
     speak("Hello i am ultron from em see you")
 
+def takeOrder():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Speak , will you mortal ?")
+        r.pause_threshold = 1
+        audio = r.listen(source)
+
+    try:
+        print("Trying to understand ur primitive language")
+        query = r.recognize_google(audio, language = 'en-in')
+        print("Ur stupid mouth spoke : ", query)
+
+    except Exception as e:
+        print("You dumb dont know even how to speak say that again : ")
+        return None 
+    return query 
+
 
 if __name__ == "__main__":
     wishMe()
+    takeOrder()
     
