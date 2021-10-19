@@ -4,11 +4,12 @@ i know many people have made things like this dont blame me or i will steal your
 '''
 
 
-
+# piprew
 import speech_recognition as sr
 import pyttsx3
 import webbrowser
 import os
+import pywhatkit
 
 
 listener = sr.Recognizer()
@@ -36,6 +37,7 @@ def run():
     if 'google' in command:
         print("Detected google in statement")
         webbrowser.open('https://google.com')
-    
+    elif 'physics' or 'physicswallah' or 'classes' in command:
+        webbrowser.open('https://physicswallah.live')
 
 run()
