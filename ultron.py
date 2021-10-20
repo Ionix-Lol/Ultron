@@ -4,7 +4,7 @@ i know many people have made things like this dont blame me or i will steal your
 '''
 
 
-# piprew
+# piprew offor generating requirements.txt
 import speech_recognition as sr
 import pyttsx3
 import webbrowser
@@ -39,5 +39,8 @@ def run():
         webbrowser.open('https://google.com')
     elif 'physics' or 'physicswallah' or 'classes' in command:
         webbrowser.open('https://physicswallah.live')
+    elif 'github' in command:
+        webbrowser.open('https://github.com')
 
+print(os.name)
 run()
