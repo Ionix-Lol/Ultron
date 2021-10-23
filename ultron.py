@@ -1,5 +1,5 @@
-''' 
-Coded by Korrykatti aka Abhinav 
+'''
+Made By Abhinav With Frustration <3
 i know many people have made things like this dont blame me or i will steal your cookie
 '''
 
@@ -9,7 +9,7 @@ import speech_recognition as sr
 import pyttsx3
 import webbrowser
 import os
-import pywhatkit
+#import pywhatkit
 
 
 listener = sr.Recognizer()
