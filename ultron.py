@@ -2,45 +2,68 @@
 Made By Abhinav With Frustration <3
 i know many people have made things like this dont blame me or i will steal your cookie
 '''
-
-
-# piprew offor generating requirements.txt
-import speech_recognition as sr
-import pyttsx3
-import webbrowser
 import os
-#import pywhatkit
+import pyaudio
+import wave
+import pyttsx3
+import speech_recognition as sr
+from pyttsx3 import engine
+import datetime
 
+FORMAT = pyaudio.paInt16
+CHANNELS = 2
+RATE = 44100
+CHUNK = 1024
+RECORD_SECONDS = 5
+WAVE_OUTPUT_FILENAME = "x.wav"
 
-listener = sr.Recognizer()
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[56].id)
-engine.say('Hello comrade')
-engine.runAndWait()
+print(voices[11].id)
+engine.setProperty('voice', voices[11].id)
+
+
+def speak(audio):
+    engine.say(audio)
+    engine.runAndWait()
+
+def wishMe():
+    file = open("microphone-results.wav", "w")
+    os.remove('microphone-results.wav')
+    hour = int(datetime.datetime.now().hour)
+    if hour >= 0 and hour<12:
+        speak("Morning")
+    elif hour >= 12 and hour < 18:
+        speak("Noon")
+    else:
+        speak("Good Evening") 
+
+    speak("I  am  now  awake  to  fulfill  your  dreams")
 
 def takeCommand():
+    r = sr.Recognizer()
+    with sr.Microphone(sample_rate = 48000) as source:
+        print("Listening to your stupid commands")
+        audio = r.record(source, duration = 3)
+        with open("microphone-results.wav", "wb") as f:
+            f.write(audio.get_wav_data())
+        r.pause_threshold = 1
+        with sr.AudioFile("microphone-results.wav") as source:
+            audio = r.listen(source)
+
     try:
-        with sr.Microphone() as source:
-            print('listening now')
-            voice = listener.listen(source)
-            command = listener.recognize_google(voice)
-            command = command.lower()
-            if 'hello' in command:
-                print(f"User said: {command}")
-    except:
-        pass
-    return command
+        print("Trying to understand")
+        query = r.recognize_google(audio, language='en-in')
+        print(f"User said {query}\n")
+    except Exception as e:
+        print(e) 
+        print("Wapas Bol Pagal AADmi")
+        return "None"
+    return query
 
-def run():
-    command = takeCommand()
-    if 'google' in command:
-        print("Detected google in statement")
-        webbrowser.open('https://google.com')
-    elif 'physics' or 'physicswallah' or 'classes' in command:
-        webbrowser.open('https://physicswallah.live')
-    elif 'github' in command:
-        webbrowser.open('https://github.com')
 
-print(os.name)
-run()
+
+
+if __name__ == "__main__":
+    wishMe()
+    takeCommand()
