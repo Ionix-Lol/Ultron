@@ -34,7 +34,41 @@ def taskExec():
   wishMe()
   while True:
     speak("you have access to my powers now you stupid human")
-    #proceed to add whatever u want him to do... this is your main routine
+    query = takeCommand().lower()
+    if 'wiki' in query:
+            speak('Searching the wiki')
+            query = query.replace("wiki", "")
+            results = wikipedia.summary(query, sentences=2)
+            speak("According to wiki")
+            speak(results)
+    elif 'exit' in query:
+            sys.exit()
+    elif 'master' in query:
+            speak(" A b h i n a v  is my master")
+    elif 'physics' in query:
+            speak("Opening PhysicsWallah")
+            webbrowser.open("https://physicswallah.live")
+    elif 'youtube' in query:
+            speak("Opening Youtube")
+            webbrowser.open("https://www.youtube.com/")
+    elif 'spotify' in query:
+            speak("Opening Spotify")
+            os.system("spotify")
+    elif 'browser' in query:
+            speak("Opening your default browser")
+            webbrowser.open("https://search.brave.com")
+    elif 'my name' in query:
+            load_dotenv()
+            name = os.getenv("NAME")
+            print(name)
+            speak(name)
+    elif 'play music' in query:
+            music_dir = '/home/ironman/Downloads/pytest'
+            songs = os.listdir(music_dir)
+            print(songs)
+            os.system('vlc ' + music_dir + '/' + songs[0])
+    elif 'break' in query:
+            speak("Enjoy Your Break I Will Be Up and Listening and waiting for you")
     
     
 def funca():
