@@ -2,6 +2,8 @@
 Made By Abhinav With Frustration <3
 i know many people have made things like this dont blame me or i will steal your cookie
 '''
+
+#this is just a test i was showing my friend about commits and stuff
 import pipreqs
 import webbrowser
 from dotenv import load_dotenv
